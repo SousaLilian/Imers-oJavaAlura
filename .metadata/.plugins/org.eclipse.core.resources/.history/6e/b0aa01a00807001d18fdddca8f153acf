@@ -1,0 +1,6 @@
+package aula01Desafio;
+
+public class AppChave {
+
+	public static String Chave = "k_2de8ar4z";
+}

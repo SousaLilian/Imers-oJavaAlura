@@ -1,0 +1,19 @@
+package aula01;
+
+import java.net.http.HttpClient;
+
+public class App {
+
+	public static void main(String[] args) throws Exception {
+
+		// fazer uma conexão HTTP  e buscar os top 250 filmes
+		String url = "https://api.mocki.io/v2/549a5d8b/Top250TVs";
+		var client = HttpClient.newHttpClient();
+		
+		 
+		// extrair só os dados que interessam (titulo, poster, classificação)
+		
+		// exibir e manipular os dados
+	}
+
+}

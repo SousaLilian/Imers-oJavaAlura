@@ -1,0 +1,11 @@
+package aula01Desafio;
+
+public class App {
+
+	public static void main(String[] args) {
+	
+		System.out.println("\"\\u001c[1m Bem-vindo! O que vamos assistir hoje? \\u001c[0m\"");
+
+	}
+
+}

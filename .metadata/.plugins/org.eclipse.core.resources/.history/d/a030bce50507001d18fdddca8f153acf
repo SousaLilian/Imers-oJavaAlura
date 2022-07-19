@@ -1,0 +1,45 @@
+package aula01Desafio;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.util.List;
+import java.util.Map;
+
+import aula01.JsonParser;
+
+public class App {
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+
+		// Melhores séries
+
+		String url1 = "https://imdb-api.com/en/API/MostPopularTVs/";
+		URI endereco1 = URI.create(url1);
+		var client1 = HttpClient.newHttpClient();
+		var request1 = HttpRequest.newBuilder(endereco1).GET().build();
+		HttpResponse<String> resposta = client1.send(request1, BodyHandlers.ofString());
+		String retorno = resposta.body();
+		
+		
+	
+
+		// extrair(titulo, poster, classificação)
+		var parser = new JsonParser();
+		List<Map<String, String>> Lista = parser.parse(retorno);
+
+		// visualização do site
+		for (Map<String, String> filme : Lista) {
+
+			System.out.println("\u001b[1m Nome: " + filme.get("title") + " \u001b[0m");
+			System.out.println("\u001b[3m Pôster: " + filme.get("image") + "\u001b[0m");
+		
+			System.out.println();
+		}
+
+	}
+
+}
